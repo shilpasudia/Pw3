@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClientConfig>
+  <UseHeaderAndFooter>true</UseHeaderAndFooter>
+  <DefaultAPIDataSource>default</DefaultAPIDataSource>
+  <UseLogOffLandingPage>false</UseLogOffLandingPage>
+  <PaymentVisionAPICredentials>
+	<LoginName>dbhatnagar</LoginName>
+	<Password></Password>
+	<Key>4C702E47-D13F-40A0-84F7-B485002AC3FD</Key>
+	<Token>MATO999</Token>	 
+  </PaymentVisionAPICredentials>
+  <ContactInfo>
+    <RequireEmailAddress>true</RequireEmailAddress>
+  </ContactInfo>
+  <SignOn>
+    <RequireAcknowledgement>false</RequireAcknowledgement>
+  </SignOn>
+  <DemoModeSettings>
+    <DemoModeOn>true</DemoModeOn>
+    <LoginName>12345</LoginName>
+    <Password>12345</Password>
+  </DemoModeSettings>
+  <AccountHome>
+    <Panel order="0" hideWhenAllFieldsNull="true">
+      <Field>CurrentBalance</Field>
+      <Field>CurrentPaymentAmount</Field>
+      <Field>PaymentDueDate</Field>
+      <Field>PastDueBalance</Field>
+    </Panel>
+    <!--<LinkedAccounts>
+			<Show>true</Show>
+			<Columns>
+				<Field Show="true" HyperLink="true" ColumnLabel="Account ID">AccountReferenceCode</Field>
+				<Field Show="true" HyperLink="false" ColumnLabel="Creditor" Sum="false">PayeeName</Field>
+				<Field Show="true" HyperLink="false" ColumnLabel="Payment Amount" Sum="false">CurrentPaymentAmount</Field>
+				<Field Show="true" HyperLink="false" ColumnLabel="Balance" Sum="false">CurrentBalance</Field>
+			</Columns>
+		</LinkedAccounts>-->
+  </AccountHome>
+  <MakePayment>
+    <CheckForDuplicates>true</CheckForDuplicates>
+    <HoldForDuplicatesTime>300</HoldForDuplicatesTime>
+    <PaymentConfirmation>
+      <RequireACHCheckboxConfirm>true</RequireACHCheckboxConfirm>
+      <RequireACHLogin>true</RequireACHLogin>
+      <RequireCreditCardCheckboxConfirm>false</RequireCreditCardCheckboxConfirm>
+      <RequireCreditCardLogin>false</RequireCreditCardLogin>
+      <ACHPaymentUnsuccessfulMessage>We are unable to process your payment at this time. Please select another payment method or contact a representative at (908)791-5500, during normal business hours to make other arrangements.</ACHPaymentUnsuccessfulMessage>
+      <CreditCardPaymentUnsuccessfulMessage>We are unable to process your payment at this time. Please select another payment method or contact a representative at (908)791-5500, during normal business hours to make other arrangements.</CreditCardPaymentUnsuccessfulMessage>
+    </PaymentConfirmation>
+    <OneTimePayment>
+      <ShowBalances>
+        <BalanceType>CurrentPaymentAmount</BalanceType>
+        <BalanceType>PastDueBalance</BalanceType>
+        <BalanceType>OtherPayment</BalanceType>
+      </ShowBalances>
+      <Allowed>true</Allowed>
+      <ACHConvenienceFee>
+        <Allow>false</Allow>
+        <ApplyConvenienceFeeAsPercentage>false</ApplyConvenienceFeeAsPercentage>
+      </ACHConvenienceFee>
+      <CreditCardConvenienceFee>
+        <Allow>false</Allow>
+        <ApplyConvenienceFeeAsPercentage>false</ApplyConvenienceFeeAsPercentage>
+      </CreditCardConvenienceFee>
+      <AllowConvenienceFee>false</AllowConvenienceFee>
+      <MaxAllowedDays>60</MaxAllowedDays>
+      <OtherAmount>
+        <MinAllowed>0.00</MinAllowed>
+        <MaxAllowed>1000000.00</MaxAllowed>
+        <UseMinFromReferenceData>false</UseMinFromReferenceData>
+        <UseMaxFromReferenceData>true</UseMaxFromReferenceData>
+      </OtherAmount>
+      <ValidateCardBinnNumbers>true</ValidateCardBinnNumbers>
+    </OneTimePayment>
+    <PaymentPlan>
+      <ShowBalances>
+        <BalanceType>CurrentBalance</BalanceType>
+        <!--<BalanceType>OtherPayment</BalanceType>-->
+      </ShowBalances>
+      <Allowed>true</Allowed>
+      <ACHConvenienceFee>
+        <Allow>false</Allow>
+        <ApplyConvenienceFeeToFirstPaymentOnly>false</ApplyConvenienceFeeToFirstPaymentOnly>
+        <ApplyConvenienceFeeAsPercentage>false</ApplyConvenienceFeeAsPercentage>
+      </ACHConvenienceFee>
+      <CreditCardConvenienceFee>
+        <Allow>false</Allow>
+        <ApplyConvenienceFeeToFirstPaymentOnly>false</ApplyConvenienceFeeToFirstPaymentOnly>
+        <ApplyConvenienceFeeAsPercentage>false</ApplyConvenienceFeeAsPercentage>
+      </CreditCardConvenienceFee>
+      <AllowFirstPaymentAmount>true</AllowFirstPaymentAmount>
+      <AllowRecurringAmount>true</AllowRecurringAmount>
+      <AllowUntilDate>false</AllowUntilDate>
+      <AllowedFrequency>
+        <!--<Frequency>Weekly</Frequency>-->
+        <Frequency>Monthly</Frequency>
+        <!--<Frequency>SemiMonthly</Frequency>
+				<Frequency>Quarterly</Frequency>
+				<Frequency>BiWeekly</Frequency>-->
+      </AllowedFrequency>
+      <MaxAllowedDays>1830</MaxAllowedDays>
+      <MaxNumberOfPayments>61</MaxNumberOfPayments>
+      <StartMonthRanage>
+        <Start>0</Start>
+        <End>1</End>
+      </StartMonthRanage>
+      <OtherAmount>
+        <MinAllowed>100.00</MinAllowed>
+        <!--<MaxAllowed>1000000.00</MaxAllowed>-->
+        <UseMinFromReferenceData>false</UseMinFromReferenceData>
+        <UseMaxFromReferenceData>false</UseMaxFromReferenceData>
+      </OtherAmount>
+      <MinRecurringPaymentAmount>100.00</MinRecurringPaymentAmount>
+      <!--<MaxRecurringPaymentAmount>1000000.00</MaxRecurringPaymentAmount>-->
+      <ValidateCardBinnNumbers>true</ValidateCardBinnNumbers>
+    </PaymentPlan>
+    <AllowBankAccountPayments>true</AllowBankAccountPayments>
+    <AllowCreditAccountPayments>true</AllowCreditAccountPayments>
+    <EmailConfirmationSettings>
+      <EmailTemplate PaymentType="OneTime" PaymentMethodType="ACH" EmailFormat="text/html">
+        <From>webpayments@maplefc.com</From>
+       
+        <Subject>Thank you for your payment to Maple Finance Company</Subject>
+        <Message><![CDATA[
+Method of Payment........:  ACH
+Transaction Date/Time....: {PaymentDate}	
+Confirmation Number......: {ConfirmationNumber}
+Amount of Payment........: {Amount}	
+Account Number................: {AddressLineTwo}	
+Customer Number................: {CustomerReferenceCode}
+
+-- Your Information --
+
+Last Name/Company Name..: {LastName}	
+First Name.............................: {FirstName}
+Address 1..............................: {AddressLineOne}		
+City, State Zip........................: {City}, {State} {Zip}		
+Phone..................................: {HomePhone}		
+Email Address..........................: {EmailAddress}		
+
+    
+-- Account Information --
+
+Routing Number...................: {ABA}		
+Account Number...................: {Account}		
+Amount of Payment................: {Amount}
+
+
+Please do not reply to this email. Address is unmonitored.
+	
+    ]]></Message>
+      </EmailTemplate>
+      <EmailTemplate PaymentType="OneTime" PaymentMethodType="CreditCard" EmailFormat="text/html">
+        <From>webpayments@maplefc.com</From>
+        <BCCTo>custservice@maplefc.com</BCCTo>
+        <Subject>Thank you for your payment to Maple Finance Company</Subject>
+        <Message><![CDATA[
+Method of Payment: Debit Card
+Transaction Date/Time: {PaymentDate}	
+Confirmation Number: {ConfirmationNumber}
+Amount of Payment: {Amount}	
+Account Number................: {AddressLineTwo}	
+Customer Number................: {CustomerReferenceCode}
+
+
+
+
+Please do not reply to this email. Address is unmonitored.
+	
+
+
+    ]]></Message>
+      </EmailTemplate>
+      <EmailTemplate PaymentType="PaymentPlan" PaymentMethodType="ACH" EmailFormat="text/html">
+        <From>webpayments@maplefc.com</From>
+        <BCCTo>custservice@maplefc.com</BCCTo>
+        <Subject>Thank you for your payment to Maple Finance Company</Subject>
+        <Message><![CDATA[
+Method of Payment.........:  ACH
+Transaction Date/Time.....: {PaymentDate}	
+Confirmation Number.......: {ConfirmationNumber}
+First Payment Date........: {FirstPaymentDate}
+First Payment Amount......: {FirstPaymentAmount}
+Last Payment Date.........: {LastPaymentDate}
+Last Payment Amount.......: {LastPaymentAmount}	
+Account Number................: {AddressLineTwo}	
+Customer Number................: {CustomerReferenceCode}
+
+-- Your Information --
+
+Last Name/Company Name: {LastName}
+First Name............: {FirstName}	
+Address 1.............: {AddressLineOne}	
+City, State Zip.......: {City}, {State}{Zip}		
+Phone.................: {HomePhone}	
+Email Address.........: {EmailAddress}	
+    
+-- Account Information --
+
+Routing Number...................: {ABA}		
+Account Number...................: {Account}		
+Amount of Payment................: {Amount}
+
+
+
+Please do not reply to this email. Address is unmonitored.
+    ]]></Message>
+      </EmailTemplate>
+      <EmailTemplate PaymentType="PaymentPlan" PaymentMethodType="CreditCard" EmailFormat="text/html">
+        <From>webpayments@maplefc.com</From>
+        <BCCTo>custservice@maplefc.com</BCCTo>
+        <Subject>Thank you for your payment to Maple Finance Company</Subject>
+        <Message><![CDATA[
+Method of Payment..........: Debit Card
+Transaction Date/Time.......: {PaymentDate}	
+Confirmation Number........: {ConfirmationNumber}	
+First Payment Date.............:   {FirstPaymentDate}
+First Payment Amount........: {FirstPaymentAmount}
+Last Payment Date..............:     {LastPaymentDate}
+Last Payment Amount.........: {LastPaymentAmount}
+Account Number................: {AddressLineTwo}
+Customer Number................: {CustomerReferenceCode}
+
+
+-- Your Information --
+
+Last Name/Company Name..: {LastName}	
+First Name............................: {FirstName}
+Address 1..............................: {AddressLineOne}		
+City, State Zip........................: {City}, {State} {Zip}		
+Phone...................................: {HomePhone}		
+Email Address........................: {EmailAddress}
+
+-- Billing Address --
+
+Address 1............................: {BillingAddressLineOne}	
+Address 2............................: {BillingAddressLineTwo}	
+City, State Zip......................: {BillingCity}, {BillingState} {BillingZip}	
+    
+-- Credit Card Information --
+
+Card Number......................: {CardNumber}		
+Card Expiration....................: {CardExpirationDate}		
+Amount of Payment............: {Amount}
+
+Please do not reply to this email. Address is unmonitored.
+
+    ]]></Message>
+      </EmailTemplate>
+    </EmailConfirmationSettings>
+  </MakePayment>
+</ClientConfig>

@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ClientConfig>
+		
+  <UseHeaderAndFooter>true</UseHeaderAndFooter>
+  <DefaultAPIDataSource>default</DefaultAPIDataSource>
+  <UseLogOffLandingPage>false</UseLogOffLandingPage>
+  <PaymentVisionAPICredentials>
+	<LoginName>dbhatnagar</LoginName>
+	<Password></Password>
+	<Key>4C702E47-D13F-40A0-84F7-B485002AC3FD</Key>
+	<Token>MATO999</Token>	 
+  </PaymentVisionAPICredentials>
+
+
+  <ContactInfo>
+	<RequireEmailAddress>false</RequireEmailAddress>
+	<RequireUserDefinedOne>false</RequireUserDefinedOne>
+	<RequireUserDefinedTwo>false</RequireUserDefinedTwo>
+	<RequirePhone>false</RequirePhone>
+	<ShowUserDefinedOne>false</ShowUserDefinedOne>
+	<ShowUserDefinedTwo>false</ShowUserDefinedTwo>
+  </ContactInfo>
+
+  <PaymentTransaction>
+    <Filters>
+      <Filter>
+        <DataElementName>CaptureSourceType</DataElementName>
+        <AppliedFilterValues>
+			<Value>ImageArchiveService</Value>
+			<Value>RePresentedTransaction</Value>
+			<Value>APITransaction</Value>
+			<Value>PhonePayments</Value>
+			<Value>WebPayments</Value>  
+			<Value>FileTransactionBatch</Value>
+			<Value>CallCenterPayment</Value>
+			<Value>RefundedTransaction</Value>
+			<Value>WalkinPayment</Value>
+			<Value>KIOSKPayment</Value>
+        </AppliedFilterValues>
+      </Filter>
+      <Filter>
+		<DataElementName>CustomerReferenceCode</DataElementName>
+      </Filter>
+    </Filters>
+  </PaymentTransaction>
+
+  <SignOn>
+
+
+	<CollectLoginIDInAdvance>false</CollectLoginIDInAdvance>
+	<DisplayLoginIDWhenKnown>false</DisplayLoginIDWhenKnown>
+	<AllowLoginIDEditWhenKnown>false</AllowLoginIDEditWhenKnown>
+	<UseLoginLabelsWhenKnown>false</UseLoginLabelsWhenKnown>
+	<RequireAcknowledgement>false</RequireAcknowledgement>
+	<ShowLoginIDPromptLink>false</ShowLoginIDPromptLink>
+	<AccountLookupDisguiseLabels>
+		<Label>test1</Label>
+	</AccountLookupDisguiseLabels>
+	<RequireSecondPassword>false</RequireSecondPassword>
+  </SignOn>
+
+
+ <AccountHome>
+	<Panel order="0" hideWhenAllFieldsNull="true">
+	  <Field>CurrentBalance</Field>
+	  <Field>CurrentPaymentAmount</Field>
+	  <Field>PastDueBalance</Field>
+	  <Field>MinimumPaymentAmount</Field>
+	  <Field>CurrentPaymentAmount_PastDueBalance</Field>
+	</Panel>
+	<Panel order="1" hideWhenAllFieldsNull="true">
+		<Field>CustomerAccountStatus</Field>
+		<Field>NextDueDate</Field>
+	</Panel>
+	<Panel order="2" hideWhenAllFieldsNull="true">
+		<Field>PaymentDueDate</Field>
+	</Panel>
+	<Panel order="3" hideWhenAllFieldsNull="false">
+	  <Field>OriginalCreditor</Field>
+	  <Field>CustomerAccountType</Field>
+	</Panel>
+
+  <LinkedAccounts>
+	<Show>true</Show>
+	<Columns>
+		<Field Show="true" HyperLink="true" ColumnLabel="AccountRefCode">AccountReferenceCode</Field>
+		<Field Show="true" HyperLink="false" ColumnLabel="Current Balance">CurrentBalance</Field>			
+		<Field Show="true" HyperLink="false" ColumnLabel="Payment Amount" Sum="true">CurrentPaymentAmount</Field>
+	</Columns>
+  </LinkedAccounts> 	
+ </AccountHome>
+
+ <ViewPayments>
+	<LinkedAccountSelector>
+		<Show>true</Show>
+		<!--<Default>CurrentLinkedAccount</Default>-->
+		<Default>All</Default>
+	</LinkedAccountSelector>
+	<Filters>
+	<Filter>
+	  <DataElementName>CaptureSourceType</DataElementName>
+	  <AppliedFilterValues>
+		<Value>ImageArchiveService</Value>
+		<Value>RePresentedTransaction</Value>
+		<Value>APITransaction</Value>
+		<Value>PhonePayments</Value>
+		<Value>WebPayments</Value>  
+		<Value>FileTransactionBatch</Value>
+		<Value>CallCenterPayment</Value>
+		<Value>RefundedTransaction</Value>
+		<Value>WalkinPayment</Value>
+		<Value>KIOSKPayment</Value>
+	  </AppliedFilterValues>
+	</Filter>
+	</Filters>
+
+     <AllowPaymentCancelations>true</AllowPaymentCancelations>
+  </ViewPayments>
+
+<MakePayment>
+	<AllowBankAccountPayments>true</AllowBankAccountPayments>
+	<AllowCreditAccountPayments>true</AllowCreditAccountPayments>
+	<AllowAggregateTransactionAmountPerDayToExceedTotalBalance>true</AllowAggregateTransactionAmountPerDayToExceedTotalBalance>
+	<CheckForDuplicates>true</CheckForDuplicates> 
+    <HoldForDuplicatesTime>300</HoldForDuplicatesTime>  
+	<!--MultiUse/SingleUse/UnSpecified-->
+    <BankAccountReuseDefault>MultiUse</BankAccountReuseDefault>
+    <CreditCardReuseDefault>SingleUse</CreditCardReuseDefault>
+	<EnforceApprovedPaymentMethods>false</EnforceApprovedPaymentMethods>
+	<HoldPaymentsForApproval>true</HoldPaymentsForApproval>
+	<PaymentConfirmation>
+		<RequireACHCheckboxConfirm>true</RequireACHCheckboxConfirm>
+		<RequireACHLogin>true</RequireACHLogin>
+		<RequireCreditCardCheckboxConfirm>true</RequireCreditCardCheckboxConfirm>
+		<RequireCreditCardLogin>true</RequireCreditCardLogin>
+		<ACHPaymentUnsuccessfulMessage>We are unable to process your payment at this time. Please select another payment method or contact a representative during normal business hours at (423) 244-2604 to make other arrangements.</ACHPaymentUnsuccessfulMessage>
+		<CreditCardPaymentUnsuccessfulMessage>We are unable to process your payment at this time. Please select another payment method or contact a representative during normal business hours at (423) 244-2604 to make other arrangements.</CreditCardPaymentUnsuccessfulMessage>
+	</PaymentConfirmation>	
+
+	<OneTimePayment>
+		<Allowed>true</Allowed>
+
+<AllowFutureDatedPaymentIfFutureDatedPaymentExist>false</AllowFutureDatedPaymentIfFutureDatedPaymentExist>
+	<SplitPayment> 
+		 <Enabled>true</Enabled> 
+		 <AllowPartialPayment>true</AllowPartialPayment> 
+		 <MinimumAmountType>Largest</MinimumAmountType>  
+		 <ShowBalances>    
+			<BalanceType>AggregateCurrentBalance</BalanceType>   
+			<BalanceType>AggregateCurrentPayment</BalanceType>        
+		 </ShowBalances>
+	</SplitPayment>  
+
+		<ShowBalances>
+				<BalanceType>CurrentBalance</BalanceType>
+				<BalanceType>OtherPayment</BalanceType>
+				<BalanceType>CurrentPaymentAmount_PastDueBalance</BalanceType>
+				<BalanceType>CurrentPaymentAmount</BalanceType>
+				<BalanceType>PastDueBalance</BalanceType>
+		</ShowBalances>
+		<ACHConvenienceFee>
+			<Allow>true</Allow>
+			<ApplyConvenienceFeeAsPercentage>false</ApplyConvenienceFeeAsPercentage>
+		</ACHConvenienceFee>
+		<CreditCardConvenienceFee>
+			<Allow>true</Allow>
+			<ApplyConvenienceFeeAsPercentage>false</ApplyConvenienceFeeAsPercentage>
+		</CreditCardConvenienceFee>
+		<AllowConvenienceFee>false</AllowConvenienceFee>
+		<MaxAllowedDays>60</MaxAllowedDays>
+
+	<!--<MinAllowedDays>0</MinAllowedDays>-->
+		<OtherAmount>
+			<MinAllowed>0.01</MinAllowed>
+			<MaxAllowed>100000.00</MaxAllowed>
+			<UseMinFromReferenceData>false</UseMinFromReferenceData>
+			<UseMaxFromReferenceData>false</UseMaxFromReferenceData>
+		</OtherAmount>
+		<ValidateCardBinnNumbers>true</ValidateCardBinnNumbers>
+	</OneTimePayment>
+
+	<PaymentPlan>
+
+<AllowFutureDatedPaymentIfFutureDatedPaymentExist>false</AllowFutureDatedPaymentIfFutureDatedPaymentExist>
+	<Monthly>
+		<UseDayOfMonthFromReferenceData>false</UseDayOfMonthFromReferenceData>
+		<ShowDayOfMonthTypeOption>true</ShowDayOfMonthTypeOption>
+	</Monthly>
+		<Allowed>true</Allowed>
+	<SplitPayment> 
+		 <Enabled>true</Enabled> 
+		 <AllowPartialPayment>true</AllowPartialPayment> 
+		 <MinimumAmountType>Largest</MinimumAmountType>  
+		 <ShowBalances>    
+			 <BalanceType>AggregateCurrentBalance</BalanceType>   
+		<BalanceType>AggregateCurrentPayment</BalanceType>        
+		 </ShowBalances>
+	</SplitPayment>  
+
+		<ShowBalances>
+			<BalanceType>PastDueBalance</BalanceType>
+			<BalanceType>CurrentBalance</BalanceType>
+			<BalanceType>CurrentPaymentAmount</BalanceType>
+			<BalanceType>CurrentPaymentAmount_PastDueBalance</BalanceType>
+			<BalanceType>OtherPayment</BalanceType>
+		</ShowBalances>
+
+		<ACHConvenienceFee>
+			<Allow>true</Allow>
+			<ApplyConvenienceFeeToFirstPaymentOnly>true</ApplyConvenienceFeeToFirstPaymentOnly>
+			<ApplyConvenienceFeeAsPercentage>false</ApplyConvenienceFeeAsPercentage>
+		</ACHConvenienceFee>
+		<CreditCardConvenienceFee>
+			<Allow>true</Allow>
+			<ApplyConvenienceFeeToFirstPaymentOnly>true</ApplyConvenienceFeeToFirstPaymentOnly>
+			<ApplyConvenienceFeeAsPercentage>false</ApplyConvenienceFeeAsPercentage>
+		</CreditCardConvenienceFee>
+		<AllowFirstPaymentAmount>true</AllowFirstPaymentAmount>
+		<AllowRecurringAmount>true</AllowRecurringAmount>
+		<AllowUntilDate>true</AllowUntilDate>
+		<UntilBalances>
+			<BalanceType>CurrentPaymentAmount</BalanceType>
+		</UntilBalances>
+		<AllowedFrequency>
+			<Frequency>Weekly</Frequency>
+			<Frequency>Monthly</Frequency>
+			<Frequency>SemiMonthly</Frequency>
+			<Frequency>BiWeekly</Frequency>
+<Frequency>Quarterly</Frequency>
+		</AllowedFrequency>
+		<MaxAllowedDays>3650</MaxAllowedDays>
+		<MaxNumberOfPayments>2000</MaxNumberOfPayments>
+		<StartMonthRanage>
+			<Start>0</Start>
+			<End>20</End>
+		</StartMonthRanage>
+		<RecurringAmount>
+			<MinAllowed>.10</MinAllowed>
+			<MaxAllowed>2000.00</MaxAllowed>
+			<UseMinFromReferenceData>false</UseMinFromReferenceData>
+			<UseMaxFromReferenceData>false</UseMaxFromReferenceData>
+		</RecurringAmount>
+
+		<UseRecurringScheduleCalendar>false</UseRecurringScheduleCalendar>
+		<MinDateRecurringScheduleCalendar>0</MinDateRecurringScheduleCalendar>
+		<MaxDateRecurringScheduleCalendar>144</MaxDateRecurringScheduleCalendar>
+		<MinDateFirstPaymentCalendar>0</MinDateFirstPaymentCalendar>
+		<MaxDateFirstPaymentCalendar>66</MaxDateFirstPaymentCalendar>
+		<OtherAmount>
+			<MinAllowed>1.00</MinAllowed>
+			<MaxAllowed>100000.00</MaxAllowed>
+			<UseMinFromReferenceData>false</UseMinFromReferenceData>
+			<UseMaxFromReferenceData>false</UseMaxFromReferenceData>
+		</OtherAmount>
+		<ValidateCardBinnNumbers>true</ValidateCardBinnNumbers>
+	</PaymentPlan>
+
+
+	<EmailConfirmationSettings>
+		<EmailTemplate PaymentType="OneTime" PaymentMethodType="ACH" EmailFormat="text/html">
+			<From>FromPayweb2Shilpa@gmail.com</From>
+			<BCCTo>shilpaserat@gmail.com</BCCTo>
+			<Subject>Thank You For Your Payment</Subject>
+			<Message>
+					<![CDATA[
+					Method of Payment..........: ACH
+					Transaction Date/Time.......: {PaymentDate}	
+					Confirmation Number........: {ConfirmationNumber}
+					First Payment Date.............:   {FirstPaymentDate}
+					First Payment Amount........: {FirstPaymentAmount}
+					Last Payment Date..............:     {LastPaymentDate}
+					Last Payment Amount.........: {LastPaymentAmount}
+
+					-- Your Information --
+
+					Last Name/Company Name..: {LastName}	
+					First Name............................: {FirstName}
+					Address 1..............................: {AddressLineOne}	
+					Address 2..............................: {AddressLineTwo}	
+					City, State Zip........................: {City}, {State} {Zip}		
+					Phone...................................: {WorkPhone}		
+					Email Address........................: {EmailAddress}	
+					Account Number....................: {CustomerReferenceCode}	
+
+					-- Account Information --
+
+					Routing Number...................: {ABA}		
+					Account Number..................: {Account}		
+					Amount................................: {Amount}	
+
+
+					Please do not reply to this email. If you have questions about this payment or about your account, please contact Sunrise Acceptance at (423) 244-2604.
+
+						]]>
+				</Message>
+			</EmailTemplate>
+			<EmailTemplate PaymentType="OneTime" PaymentMethodType="CreditCard" EmailFormat="text/html">
+				<From>webpayments@sunriseacceptance.com</From>
+				<!--<BCCTo>jmartin@autoscribe.com</BCCTo>-->
+				<Subject>Thank You For Your Payment</Subject>
+				<Message>
+					<![CDATA[
+Method of Payment..........: Credit Card
+Transaction Date/Time.......: {PaymentDate}	
+Confirmation Number........: {ConfirmationNumber}
+
+-- Your Information --
+
+Last Name/Company Name..: {LastName}	
+First Name............................: {FirstName}
+Address 1..............................: {AddressLineOne}	
+Address 2..............................: {AddressLineTwo}	
+City, State Zip........................: {City}, {State} {Zip}		
+Phone...................................: {WorkPhone}		
+Email Address........................: {EmailAddress}	
+Account Number....................: {CustomerReferenceCode}	
+
+-- Billing Address --
+
+Address 1............................: {BillingAddressLineOne}	
+Address 2............................: {BillingAddressLineTwo}	
+City, State Zip......................: {BillingCity}, {BillingState} {BillingZip}	
+    
+-- Credit Card Information --
+
+Card Number......................: {CardNumber}		
+Card Expiration....................: {CardExpirationDate}		
+Amount of Payment............: {Amount}	
+
+
+Please do not reply to this email. If you have questions about this payment or about your account, please contact Sunrise Acceptance at (423) 244-2604.
+
+    ]]>
+				</Message>
+			</EmailTemplate>
+			<EmailTemplate PaymentType="PaymentPlan" PaymentMethodType="ACH" EmailFormat="text/html">
+				<From>webpayments@sunriseacceptance.com</From>
+				<!--<BCCTo>jmartin@autoscribe.com</BCCTo>-->
+				<Subject>Thank you for your payment.</Subject>
+				<Message>
+					<![CDATA[
+Method of Payment..........: ACH
+Transaction Date/Time.......: {PaymentDate}	
+Confirmation Number........: {ConfirmationNumber}
+First Payment Date.............:   {FirstPaymentDate}
+First Payment Amount........: {FirstPaymentAmount}
+Last Payment Date..............:     {LastPaymentDate}
+Last Payment Amount.........: {LastPaymentAmount}
+
+-- Your Information --
+
+Last Name/Company Name..: {LastName}	
+First Name............................: {FirstName}
+Address 1..............................: {AddressLineOne}	
+Address 2..............................: {AddressLineTwo}	
+City, State Zip........................: {City}, {State} {Zip}		
+Phone...................................: {WorkPhone}		
+Email Address........................: {EmailAddress}	
+Account Number....................: {CustomerReferenceCode}	
+
+-- Account Information --
+
+Routing Number...................: {ABA}		
+Account Number..................: {Account}		
+Amount................................: {Amount}	
+
+
+Please do not reply to this email. If you have questions about this payment or about your account, please contact Sunrise Acceptance at (423) 244-2604.
+
+    ]]>
+				</Message>
+			</EmailTemplate>
+			<EmailTemplate PaymentType="PaymentPlan" PaymentMethodType="CreditCard" EmailFormat="text/html">
+				<From>webpayments@sunriseacceptance.com</From>
+				<!--<BCCTo>jmartin@autoscribe.com</BCCTo>-->
+				<Subject>Thank You For Your Payment</Subject>
+				<Message>
+					<![CDATA[
+Method of Payment..........: Credit Card
+Transaction Date/Time.......: {PaymentDate}	
+Confirmation Number........: {ConfirmationNumber}
+First Payment Date.............:   {FirstPaymentDate}
+First Payment Amount........: {FirstPaymentAmount}
+Last Payment Date..............:     {LastPaymentDate}
+Last Payment Amount.........: {LastPaymentAmount}
+
+-- Your Information --
+
+Last Name/Company Name..: {LastName}	
+First Name............................: {FirstName}
+Address 1..............................: {AddressLineOne}	
+Address 2..............................: {AddressLineTwo}	
+City, State Zip........................: {City}, {State} {Zip}		
+Phone...................................: {WorkPhone}		
+Email Address........................: {EmailAddress}
+Account Number....................: {CustomerReferenceCode}	
+
+-- Billing Address --
+
+Address 1............................: {BillingAddressLineOne}	
+Address 2............................: {BillingAddressLineTwo}	
+City, State Zip......................: {BillingCity}, {BillingState} {BillingZip}	
+    
+-- Credit Card Information --
+
+Card Number......................: {CardNumber}		
+Card Expiration....................: {CardExpirationDate}		
+Amount of Payment............: {Amount}
+
+
+Please do not reply to this email. If you have questions about this payment or about your account, please contact Sunrise Acceptance at (423) 244-2604.
+
+    ]]>
+				</Message>
+			</EmailTemplate>
+		</EmailConfirmationSettings>
+	</MakePayment>
+</ClientConfig>
